@@ -1,0 +1,6 @@
+<p>
+    <strong><%= comment.author? ? comment.author + ':' : 'anonymous:' %></strong>
+    <%= comment.text %> <br/>
+    <%= link_to 'Delete', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, 
+        :class => 'btn btn-sm btn-danger' %>
+</p>
