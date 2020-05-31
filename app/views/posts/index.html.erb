@@ -6,6 +6,7 @@
       <div>
             <h3><%= link_to post.title, post_path(post) %></h3>
             <p><%= post.text.length > 100 ? post.text[0..97] + '...' : post.text%></p>
+            <strong>Comments: </strong><%= post.comments.length %>
       </div>
 <% end %>
 </p>

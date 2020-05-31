@@ -7,4 +7,27 @@
 <%= link_to 'Edit', edit_post_path(@post) %>
 <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }  %>
 </br>
+<h3>Comments</h3>
+<% @post.comments.each do |comment| %>
+    <div>
+    <strong><%= comment.author? ? comment.author + ':' : 'anonymous:' %></strong>
+    <%= comment.text %> <br/>
+    <%= link_to 'Delete', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+<% end %>
+
+<%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+  </p>
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
 <%= link_to 'Return back', posts_path %>

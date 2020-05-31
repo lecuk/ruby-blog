@@ -1,16 +1,21 @@
 class PostsController < ApplicationController
+	
+	# new posts display on top
 	def index
-		@posts = Post.all
+		@posts = Post.all.reverse()
 	end
 
+	# create empty post to fill in form
 	def new
 		@post = Post.new
 	end
 	
+	# return existing post to edit
 	def edit
 		@post = Post.find(params[:id])
 	end
 
+	# adding post from filled form to database
 	def create 
 		@post = Post.new(post_params)
 		
