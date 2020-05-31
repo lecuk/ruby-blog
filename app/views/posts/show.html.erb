@@ -1,8 +1,7 @@
-
-<p>
-<strong><%= @post.title %></strong>
-</p>
+<h1><%= @post.title %></h1>
 
 <article>
 <%= @post.text %>
 </article>
+
+<%= link_to 'Return back', posts_path %>

@@ -2,8 +2,9 @@
 <%= link_to 'Create Post', controller: 'posts', action: 'new' %>
 <p>
 <% @posts.each do |post| %>
-      <h3><%= post.title %></h3>
-      <p><%= post.text %></p>
-      <%= link_to 'Show', post_path(post) %>
+      <div>
+            <h3><%= link_to post.title, post_path(post) %></h3>
+            <p><%= post.text %></p>
+      </div>
 <% end %>
 </p>
