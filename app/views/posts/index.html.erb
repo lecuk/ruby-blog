@@ -2,9 +2,10 @@
 <%= link_to 'Create Post', controller: 'posts', action: 'new' %>
 <p>
 <% @posts.each do |post| %>
+      <hr/>
       <div>
             <h3><%= link_to post.title, post_path(post) %></h3>
-            <p><%= post.text %></p>
+            <p><%= post.text.length > 100 ? post.text[0..97] + '...' : post.text%></p>
       </div>
 <% end %>
 </p>
